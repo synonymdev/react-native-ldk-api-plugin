@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "es6",
+    "strict": true,
+    "declarationDir": "./dist/types",
+    "outDir": "./dist",
+    "lib": [
+      "es2016",
+      "dom"
+    ],
+    "declaration": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "noEmitOnError": true,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": true,
+    "removeComments": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "tests/**/*.ts",
+    "example/**/*.ts"
+  ],
+  "exclude": ["node_modules", "./dist/"]
+}
