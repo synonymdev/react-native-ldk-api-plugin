@@ -99,18 +99,24 @@ const blockstream: TAPI = {
 		);
 		if (response.isErr()) {
 			return {
-				highPriority: 4,
-				normal: 3,
-				background: 2,
-				mempoolMinimum: 1,
+				nonAnchorChannelFee: 4,
+				anchorChannelFee: 3,
+				maxAllowedNonAnchorChannelRemoteFee: 4 * 3,
+				channelCloseMinimum: 1,
+				minAllowedAnchorChannelRemoteFee: 1,
+				minAllowedNonAnchorChannelRemoteFee: 1,
+				onChainSweep: 3,
 			};
 		}
 		const res = response.value;
 		return {
-			highPriority: res.fastestFee,
-			normal: res.halfHourFee,
-			background: res.hourFee,
-			mempoolMinimum: res.minimumFee,
+			nonAnchorChannelFee: res.fastestFee,
+			anchorChannelFee: res.halfHourFee,
+			maxAllowedNonAnchorChannelRemoteFee: res.fastestFee * 3,
+			channelCloseMinimum: res.minimumFee,
+			minAllowedAnchorChannelRemoteFee: res.minimumFee,
+			minAllowedNonAnchorChannelRemoteFee: res.minimumFee,
+			onChainSweep: res.halfHourFee,
 		};
 	},
 

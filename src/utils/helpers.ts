@@ -165,10 +165,13 @@ export const ldkMethodCheck = async ({
 		}
 		const feeData = await getFees();
 		if (
-			!feeData.highPriority ||
-			!feeData.normal ||
-			!feeData.background ||
-			!feeData.mempoolMinimum
+			!feeData.nonAnchorChannelFee ||
+			!feeData.anchorChannelFee ||
+			!feeData.maxAllowedNonAnchorChannelRemoteFee ||
+			!feeData.channelCloseMinimum ||
+			!feeData.minAllowedAnchorChannelRemoteFee ||
+			!feeData.minAllowedNonAnchorChannelRemoteFee ||
+			!feeData.onChainSweep
 		) {
 			return err('getFees is not returning the expected data.');
 		}
