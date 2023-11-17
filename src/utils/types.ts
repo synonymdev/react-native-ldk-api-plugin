@@ -42,10 +42,13 @@ export type TLDKMethods = {
 };
 
 export type TFeeUpdateReq = {
-	highPriority: number;
-	normal: number;
-	background: number;
-	mempoolMinimum: number;
+	nonAnchorChannelFee: number;
+	anchorChannelFee: number;
+	maxAllowedNonAnchorChannelRemoteFee: number;
+	channelCloseMinimum: number;
+	minAllowedAnchorChannelRemoteFee: number;
+	minAllowedNonAnchorChannelRemoteFee: number;
+	onChainSweep: number;
 };
 
 export type THeader = {
